@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Hub Spot Test Suite" verbose="1">
+<suite name="Hub Spot Test Suite" parallel="tests" thread-count="2">
 
 	<listeners>
 		<listener class-name="com.qa.hubspot.listeners.ExtentReportListener" />
@@ -10,8 +10,15 @@
 
 	</listeners>
 
-	<test name="hub spot regression Test">
+	<test name="hub spot regression Test-chrome">
 		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.qa.hubspot.tests.LoginPageTest" />
+		</classes>
+	</test>
+
+	<test name="hub spot regression Test-firefox">
+		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="com.qa.hubspot.tests.LoginPageTest" />
 		</classes>
